@@ -13,10 +13,19 @@
 @end
 
 @implementation AppDelegate
-
+@synthesize navigationController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    HomeVC *mHomeVC = [[HomeVC alloc] initWithNibName:@"HomeVC" bundle:nil];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:mHomeVC];
+    [self.navigationController.navigationBar setHidden:YES];
+    self.window.rootViewController = self.navigationController;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
